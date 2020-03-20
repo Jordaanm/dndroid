@@ -1,0 +1,184 @@
+.android {
+  margin: 40px;
+  cursor: pointer;
+  background: none;
+  background: -webkit-linear-gradient(180deg, #9c1ea8 80%, #e5a42b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.android:after {
+  content: "";
+  display: block;
+  background-color: orangered;
+  height: 2px;
+  width: 150px;
+  position: relative;
+  left: 40px;
+  transition: all 350ms ease-in-out;
+}
+
+.android:hover::after {
+  width: 235px;
+  left: 0;
+  background-color: orange;
+}
+
+.features {
+  position: absolute;
+  left: 75px;
+  margin: 0;
+  padding: 0;
+}
+
+.features li {
+  list-style: circle;
+  margin-bottom: 10px;
+}
+
+.container {
+  background-image: url("https://www.xyztimes.com/wp-content/uploads/2016/10/google-pixel-default-wallpaper.jpg");
+  background-size: cover;
+  width: 300px;
+  height: 533px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.body {
+  position: relative;
+}
+
+.search-bar {
+  background-color: white;
+  width: 280px;
+  height: 35px;
+  position: relative;
+  left: 10px;
+  top: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 2px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+  box-sizing: border-box;
+  cursor: text;
+}
+
+.googax {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Lato", serif;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+  position: relative;
+  top: 3px;
+  left: 15px;
+  border: none;
+  padding: 0.25em 0.5em;
+}
+
+.material-icons.mic {
+  position: absolute;
+  right: 5px;
+  color: rgba(0, 0, 0, 0.7);
+  top: 7px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.clock {
+  display: block;
+  position: relative;
+  background-color: transparent;
+  height: 150px;
+  width: 150px;
+  top: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  user-select: none;
+}
+
+.clock .time-main {
+  display: block;
+  color: white;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 100;
+  position: relative;
+  top: 25px;
+}
+
+.clock .day {
+  display: block;
+  color: white;
+  position: relative;
+  top: 30px;
+  text-align: center;
+  font-weight: 100;
+}
+
+img {
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  user-select: none;
+}
+
+.playstore {
+  position: relative;
+  height: 42px;
+  width: 42px;
+  top: 130px;
+  left: 230px;
+}
+
+.play-text {
+  color: white;
+  font-weight: 100;
+  font-size: 12px;
+  display: inline-block;
+  position: relative;
+  top: 130px;
+  left: 225px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.page {
+  background-color: transparent;
+  position: absolute;
+  display: inline-block;
+  height: 15px;
+  width: 50px;
+  top: 375px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page span {
+  content: "";
+  background-color: white;
+  height: 4.5px;
+  width: 4.5px;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  top: 5px;
+}
+
+.page span:nth-child(1) {
+  left: 17%;
+}
+
+.page span:nth-child(2) {
+  left: 50%;
+  transform: translateX(-50%);
+  height: 7px;
+  width: 7px;
+  top: 4px;
+}
+
+.page span:nth-child(3) {
+  left: 70%;
+}

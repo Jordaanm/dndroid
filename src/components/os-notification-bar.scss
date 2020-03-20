@@ -1,0 +1,54 @@
+
+.notif-bar {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: relative;
+    width: 300px;
+    height: 20px;
+    padding-bottom: 1px;
+    cursor: pointer;
+    user-select: none;
+
+    .dandroid {
+        color: white;
+        padding: 0 0.5em;
+    }
+    
+    .material-icons {
+      color: white;
+      font-size: 17px;
+      position: absolute;
+      top: 2px;
+    }  
+    
+    .time {
+      color: white;
+      position: absolute;
+      font-size: 12px;
+      right: 4px;
+      top: 2px;
+    }
+  }
+    
+  .network {
+    right: 50px;
+  }
+  
+  .wifi {
+    right: 66px;
+  }
+  
+  .battery {
+    right: 34px;
+  }
+  
+  .alarm {
+    right: 87px;
+  }
+  
+  .download {
+    left: 4px;
+  }
+  
+  .help {
+    left: 23px;
+  }
