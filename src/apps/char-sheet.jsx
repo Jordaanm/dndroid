@@ -1,16 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import './char-sheet.scss';
 
 import { fighter } from "../data/hero-presets/fighter";
 import { populateSheet } from "../utils/char-utils";
 
+const sortSkills = (skills, skillSort) => {
+  if (skillSort === 'alpha') {
+    return skills.sort((a, b) => a.label > b.label ? 1 : -1);
+  } else if (skillSort === 'bonus') {
+    return skills.sort((a, b) => a.score > b.score ? -1 : 1);
+  } else {
+    return skills
+  }
+}
+
 export const CharSheet = props => {
   // const {} = props;
   const fullSheet = populateSheet(fighter);
+  const [skillSort, setSkillSort] = useState(null);
+  const [onlyProf, setOnlyProf] = useState(false);
+
+  const sortedSkills = sortSkills(fullSheet.skills, skillSort);
+  const filteredSkills = onlyProf ? sortedSkills.filter(x => x.isProficient) : sortedSkills;
 
   return (
     <div className="app character-sheet">
       <div className="char-sheet-section">
+        <div className="section-header">
+          <span>Attributes</span>
+        </div>
         <ul className="attribute-list">
           {fullSheet.attributes.map(attr => (
             <CharSheetAttribute key={attr.id} {...attr} />
@@ -18,8 +36,14 @@ export const CharSheet = props => {
         </ul>
       </div>
       <div className="char-sheet-section">
+        <div className="section-header">
+          <span>Skills</span>
+          <button onClick={() => setSkillSort('alpha')}>Az</button> 
+          <button onClick={() => setSkillSort('bonus')}>+-</button>
+          <input type="checkbox" onChange={() => setOnlyProf(!onlyProf)}/>
+        </div>
         <ul className="skill-list">
-          {fullSheet.skills.map(skill => (
+          {filteredSkills.map(skill => (
             <CharSheetSkill key={skill.id} {...skill} />
           ))}
         </ul>
