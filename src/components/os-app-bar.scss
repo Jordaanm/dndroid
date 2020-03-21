@@ -10,6 +10,7 @@
       width: 42px; 
       display: inline-block; 
       overflow: hidden;
+      animation: appAppear 0.5s ease-in-out;
       img {
         height: 100%;
         width: auto;
@@ -46,15 +47,14 @@
     transition: all 100ms ease-in-out;
   }
 
-  // .chrome {
-  //   display: inline-block;
-  //   height: 42px;
-  //   width: 42px;
-  // }
-  
-  // .camera {
-  //   display: inline-block;
-  //   height: 42px;
-  //   width: 42px;
-  // }
-  
+  @keyframes appAppear {
+    0% {
+      transform: scale(0)
+    }
+    90% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

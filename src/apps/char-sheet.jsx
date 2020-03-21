@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './char-sheet.scss';
 
-import { fighter } from "../data/hero-presets/fighter";
+import { fighter } from "../data/hero-presets/heroes";
 import { populateSheet } from "../utils/char-utils";
 
 const sortSkills = (skills, skillSort) => {

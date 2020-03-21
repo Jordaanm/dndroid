@@ -112,7 +112,7 @@ export const character = {
       basis: 'dex'
     },
     {
-      id: 'sruvival',
+      id: 'survival',
       label: 'Survival',
       basis: 'wis'
     },

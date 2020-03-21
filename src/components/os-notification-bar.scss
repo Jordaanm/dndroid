@@ -1,54 +1,24 @@
 
 .notif-bar {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.5);
     position: relative;
     width: 100%;
-    height: 20px;
-    padding-bottom: 1px;
+    height: 1.5em;
     cursor: pointer;
     user-select: none;
+    font-size: 18px;
+    padding: 0.25em;
+    vertical-align: middle;
 
     .dandroid {
         color: white;
         padding: 0 0.5em;
     }
     
-    .material-icons {
-      color: white;
-      font-size: 17px;
-      position: absolute;
-      top: 2px;
-    }  
-
     .time {
       color: white;
       position: absolute;
-      font-size: 12px;
       right: 4px;
       top: 2px;
     }
-  }
-    
-  .network {
-    right: 50px;
-  }
-  
-  .wifi {
-    right: 66px;
-  }
-  
-  .battery {
-    right: 34px;
-  }
-  
-  .alarm {
-    right: 87px;
-  }
-  
-  .download {
-    left: 4px;
-  }
-  
-  .help {
-    left: 23px;
   }

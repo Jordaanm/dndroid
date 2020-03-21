@@ -9,6 +9,7 @@ import { Home } from "./home";
 import { CharSheet } from "./char-sheet";
 import { useStores } from "../utils/contexts";
 import { observer } from "mobx-react-lite";
+import { LockScreen } from "./lock-screen";
 
 const getApp = currentApp => {
   switch(currentApp) {
@@ -23,13 +24,16 @@ export const OS = observer(props => {
   const app = getApp(os.currentApp);
 
   return (
-    <div className="container">
+    <div className={`container ${os.isLocked ? 'blur' : ''}`}>
       <OSNotificationBar />
-      <div className="body">
-        {app}
-        <OSAppBar />
-        <OSNavBar />
-      </div>
+      {os.isLocked && <LockScreen />}
+      {!os.isLocked && <>
+        <div className="body">
+          {app}
+          <OSAppBar />
+          <OSNavBar />
+        </div>
+      </>}
     </div>
   );
 });
