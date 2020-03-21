@@ -1,7 +1,7 @@
 import React from 'react';
-import {Home} from './apps/home';
+import {OS} from './apps/os';
 
-import './App.css';
+import './global.scss';
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
         href="https://fonts.googleapis.com/icon?family=Material+Icons"
         rel="stylesheet"
       />
-      <Home />
+      <OS />
     </div>
   );
 }

@@ -1,39 +1,39 @@
 .apps {
     background-color: transparent;
-    position: relative;
-    top: 165px;
     width: 100%;
+    padding: 0.5em 2em;
+    display: flex;
+    justify-content: space-between;
   }
   
   .phone {
     height: 42px;
     width: 42px;
     display: inline-block;
-    position: absolute;
-    left: 15px;
   }
   
   .messages {
     height: 42px;
     width: 42px;
     display: inline-block;
-    position: absolute;
-    left: 70px;
   }
   
   .menu {
-    position: relative;
     background-color: rgba(255, 255, 255, 0.6);
     height: 42px;
     width: 42px;
     border-radius: 50%;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     cursor: pointer;
-    display: inline-block;
-    z-index: 2;
-    transition: all 250ms ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0.5em;
+    .menu-row {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+    }
   }
   
   .menu span {
@@ -43,49 +43,21 @@
     height: 5px;
     width: 5px;
     border-radius: 50%;
-    position: relative;
-    left: 8px;
-    top: 2px;
     margin: 0.5px;
     cursor: pointer;
     opacity: 1;
     transition: all 100ms ease-in-out;
   }
-  
-  .menu .down-container {
-    display: block;
-  }
-  
-  .menu .down-container span {
-    top: -8.5px;
-  }
-  
-  .menu-open span {
-    display: none;
-  }
-  
-  .menu-open {
-    background-color: white;
-    top: -410px;
-    height: 470px;
-    width: 290px;
-    border-radius: 4px;
-    z-index: 1;
-  }
-  
+
   .chrome {
     display: inline-block;
     height: 42px;
     width: 42px;
-    position: absolute;
-    left: 185px;
   }
   
   .camera {
     display: inline-block;
     height: 42px;
     width: 42px;
-    position: absolute;
-    left: 240px;
   }
   

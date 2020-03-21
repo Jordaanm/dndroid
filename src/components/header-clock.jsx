@@ -16,7 +16,7 @@ export const Clock = props => {
     });
 
     return (
-        <span class="time">{now}</span>
+        <span className="time">{now}</span>
     );
 
 };

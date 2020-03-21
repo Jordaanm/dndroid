@@ -17,10 +17,12 @@ export const OSAppBar = props => {
         />
       </div>
       <div className="menu">
-        <span className="up"></span>
-        <span className="up"></span>
-        <span className="up"></span>
-        <div className="down-container">
+        <div className="menu-row">
+          <span className="up"></span>
+          <span className="up"></span>
+          <span className="up"></span>
+        </div>
+        <div className="menu-row">
           <span className="down"></span>
           <span className="down"></span>
           <span className="down"></span>

@@ -1,0 +1,44 @@
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.tx-xs {
+    font-size: 8px;
+}
+.tx-s {
+    font-size: 12px;
+}
+.tx-m {
+    font-size: 16px;
+}
+.tx-l {
+    font-size: 24px;
+}
+.tx-xl {
+    font-size: 32px;
+}
+
+.tx-light {
+    font-weight: 200;
+}
+
+.tx-medium {
+    font-weight: 300;
+}
+
+.tx-heavy {
+    font-weight: 500;
+}
+
+.tx-upper {
+    text-transform: uppercase;
+}
+.tx-lower {
+    text-transform: lowercase;
+}

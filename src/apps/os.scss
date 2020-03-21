@@ -1,0 +1,68 @@
+.dandroid-os {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  background-image: url("https://www.xyztimes.com/wp-content/uploads/2016/10/google-pixel-default-wallpaper.jpg");
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+}
+
+.body {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+
+  .app {
+    flex: 1;
+    overflow-y: auto;
+  }
+}
+
+.page {
+  background-color: transparent;
+  position: absolute;
+  display: inline-block;
+  height: 15px;
+  width: 50px;
+  top: 375px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.page span {
+  content: "";
+  background-color: white;
+  height: 4.5px;
+  width: 4.5px;
+  display: inline-block;
+  border-radius: 50%;
+  position: absolute;
+  top: 5px;
+  top: 5px;
+}
+
+.page span:nth-child(1) {
+  left: 17%;
+}
+
+.page span:nth-child(2) {
+  left: 50%;
+  transform: translateX(-50%);
+  height: 7px;
+  width: 7px;
+  top: 4px;
+}
+
+.page span:nth-child(3) {
+  left: 70%;
+}
