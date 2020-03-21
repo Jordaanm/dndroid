@@ -1,6 +1,5 @@
 import React from 'react';
 import {OS} from './apps/os';
-import { useStores } from './utils/contexts';
 
 import './global.scss';
 

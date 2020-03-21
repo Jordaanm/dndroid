@@ -4,24 +4,21 @@
     padding: 0.5em 2em;
     display: flex;
     justify-content: space-between;
-  }
-  
-  .phone {
-    height: 42px;
-    width: 42px;
-    display: inline-block;
-  }
-  
-  .messages {
-    height: 42px;
-    width: 42px;
-    display: inline-block;
+
+    .app-shortcut {
+      height: 42px;
+      width: 42px; 
+      display: inline-block; 
+      overflow: hidden;
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
   }
   
   .menu {
     background-color: rgba(255, 255, 255, 0.6);
-    height: 42px;
-    width: 42px;
     border-radius: 50%;
     cursor: pointer;
     display: flex;
@@ -49,15 +46,15 @@
     transition: all 100ms ease-in-out;
   }
 
-  .chrome {
-    display: inline-block;
-    height: 42px;
-    width: 42px;
-  }
+  // .chrome {
+  //   display: inline-block;
+  //   height: 42px;
+  //   width: 42px;
+  // }
   
-  .camera {
-    display: inline-block;
-    height: 42px;
-    width: 42px;
-  }
+  // .camera {
+  //   display: inline-block;
+  //   height: 42px;
+  //   width: 42px;
+  // }
   

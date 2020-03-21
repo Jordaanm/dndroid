@@ -5,4 +5,4 @@ export const storesContext = React.createContext({
   os: new OSStore()
 });
 
-export const useStores = React.useContext(storesContext);
+export const useStores = () => React.useContext(storesContext);

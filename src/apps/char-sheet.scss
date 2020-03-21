@@ -15,7 +15,10 @@
         flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
-        list-style: none;
+        list-style: none;;
+        padding: 0.5em;
+        background: rgba(0,0,0,0.25);
+        border-radius: 10px;
     }
 
     .attribute-list-item {
@@ -51,8 +54,18 @@
         }
     }
 
-    .skill-list-item {
+    .skill-list {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0.5em;
+        background: rgba(0,0,0,0.25);
+        color: white;
+        border-radius: 10px;
         list-style: none;
+    }
+    
+    .skill-list-item {
+        flex: 1 1 33%;
         padding: 0.25em 0;
         justify-content: left;
         .proficiency {

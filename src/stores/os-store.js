@@ -1,5 +1,8 @@
-import { observable} from 'mobx'
+import { observable, decorate} from 'mobx'
 export class OSStore {
-  @observable
   currentApp = null;
 } 
+
+decorate(OSStore, {
+  currentApp: observable
+});

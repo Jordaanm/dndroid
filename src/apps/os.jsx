@@ -7,16 +7,29 @@ import { OSNotificationBar } from "../components/os-notification-bar";
 
 import { Home } from "./home";
 import { CharSheet } from "./char-sheet";
+import { useStores } from "../utils/contexts";
+import { observer } from "mobx-react-lite";
 
-export const OS = props => {
+const getApp = currentApp => {
+  switch(currentApp) {
+    case "charsheet": return <CharSheet />;
+    default: return <Home />;
+  }
+}
+
+export const OS = observer(props => {
+  const { os } = useStores();
+  console.log("os");
+  const app = getApp(os.currentApp);
+
   return (
     <div className="container">
       <OSNotificationBar />
       <div className="body">
-        <CharSheet/>
+        {app}
         <OSAppBar />
         <OSNavBar />
       </div>
     </div>
   );
-};
+});

@@ -8,6 +8,12 @@
     flex-direction: row;
 }
 
+.center-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .tx-xs {
     font-size: 8px;
 }
