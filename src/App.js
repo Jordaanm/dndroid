@@ -1,9 +1,11 @@
 import React from 'react';
 import {OS} from './apps/os';
+import { useStores } from './utils/contexts';
 
 import './global.scss';
 
 function App() {
+
   return (
     <div className="dandroid-os">
       <link
