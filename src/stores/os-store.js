@@ -5,6 +5,7 @@ import { Voice } from '../utils/voice';
 import openSocket from 'socket.io-client';
 
 const DEFAULT_APPS = ['sheet'];
+const LOCAL_STORAGE_CHAR_KEY = 'characterData';
 
 export class OSStore {
   currentApp = null;
@@ -23,6 +24,10 @@ export class OSStore {
       this.apps.push('dm');
       this.isDM = true;
     }
+    setInterval(() => {
+      this.save();
+      console.log("Saving...");
+    }, 15000);
   }
 
   async enableDefaultApps() {
@@ -40,6 +45,12 @@ export class OSStore {
     if(!this.apps.includes(appName)) {
       this.apps.push(appName);
     }
+  }
+
+  initialise() {
+    const val = this.connectSocket();
+    this.load();
+    return val;
   }
 
   connectSocket() {
@@ -68,6 +79,40 @@ export class OSStore {
       return Promise.resolve(chosenHero);
     }
   }
+
+  save() {
+    const data = {
+      password: this.hero.password,
+      unlockedApps: this.apps,
+      health: 0, //TODO
+      mana: 0, //TODO
+      inventory: [], //TODO
+      skillUses: [] //TODO
+    };
+
+    localStorage.setItem(LOCAL_STORAGE_CHAR_KEY, JSON.stringify(data));
+  }
+
+  load() {
+    const dataString = localStorage.getItem(LOCAL_STORAGE_CHAR_KEY);
+    if(!dataString) { return; }
+
+    const data = JSON.parse(dataString);
+
+    //Load Hero   
+    const chosenHero = allHeroes.find(x => x.password === data.password.toLowerCase());
+    this.hero = chosenHero;
+    this.isLocked = false;
+    this.socket.emit('selectedHero', chosenHero.name);
+    
+    //Unlock Apps
+    this.apps = data.unlockedApps;
+
+    // this.hero.hp = data.health;
+    // this.hero.mana = data.mana;
+    // this.inventory = data.inventory;
+    // this.hero.skillUses = data.skillUses
+  }
 } 
 
 decorate(OSStore, {
@@ -77,5 +122,6 @@ decorate(OSStore, {
   hero: observable,
   tryUnlock: action,
   apps: observable,
-  dmScreen: observable
+  dmScreen: observable,
+  load: action
 });

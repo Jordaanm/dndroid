@@ -2,6 +2,7 @@ export const fighter = {
     name: 'Fighter',
     password: 'champion',
     classes: ['Fighter'],
+    maxHP: 44,
     attributes: {
         str: 16,
         dex: 14,
@@ -17,10 +18,11 @@ export const paladin = {
     name: 'Paladin',
     password: 'believe',
     classes: ['Paladin'],
+    maxHP: 48,
     attributes: {
-        str: 14,
+        str: 13,
         dex: 10,
-        con: 13,
+        con: 14,
         int: 10,
         wis: 12,
         cha: 16
@@ -32,6 +34,7 @@ export const ranger = {
     name: 'Ranger',
     password: 'focus',
     classes: ['Ranger'],
+    maxHP: 40,
     attributes: {
         str: 13,
         dex: 16,

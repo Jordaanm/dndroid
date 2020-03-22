@@ -9,7 +9,7 @@ function App() {
   const {os} = useStores();
   
   useEffect(() => {
-    return os.connectSocket();
+    return os.initialise();
   });
 
   return (
