@@ -14,6 +14,11 @@
     justify-content: center;
 }
 
+.center-content-top {
+    display: flex;
+    align-items: center;
+}
+
 .fullsize {
     position: absolute;
     left: 0;
@@ -38,24 +43,13 @@
     font-size: 32px;
 }
 
-.tx-light {
-    font-weight: 200;
-}
+.tx-light { font-weight: 200; }
+.tx-medium { font-weight: 300; }
+.tx-heavy { font-weight: 500; }
 
-.tx-medium {
-    font-weight: 300;
-}
-
-.tx-heavy {
-    font-weight: 500;
-}
-
-.tx-upper {
-    text-transform: uppercase;
-}
-.tx-lower {
-    text-transform: lowercase;
-}
+.tx-upper { text-transform: uppercase; }
+.tx-lower { text-transform: lowercase; }
+.tx-center { text-align: center; }
 
 .flex-sa {
     justify-content: space-around;
@@ -88,6 +82,9 @@
         text-decoration: underline;
     }
 }
+
+.full-y { height: 100%; }
+.full-x { width: 100%; }
 
 .half-modal {
     position: absolute;

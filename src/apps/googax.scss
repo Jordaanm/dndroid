@@ -1,0 +1,47 @@
+.app.googax {
+
+  .search-bar {
+    height: 35px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 2px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+    box-sizing: border-box;
+    cursor: text;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+  }
+  
+  .results {
+    flex: 1;
+  }
+  
+  .results-list {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  .result {
+    border-radius: 5px;
+    padding: 0.5em 2em;
+    max-height: 7em;
+    overflow-y: hidden;
+    margin-bottom: 1em;
+  }
+  
+  .article {
+    background: rgba(255, 255, 255, 0.25);
+    flex: 1;
+    padding: 0.5em 2em;
+    overflow-y: auto;
+    max-height: 50%;
+    border-radius: 5px;
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+    }
+    .btn-close {
+
+    }
+  }
+}
