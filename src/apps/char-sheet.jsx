@@ -25,7 +25,10 @@ export const CharSheet = props => {
   const filteredSkills = onlyProf ? sortedSkills.filter(x => x.isProficient) : sortedSkills;
 
   return (
-    <div className="app character-sheet">
+    <div className="app bg character-sheet">
+      <div className="row center-content">
+        <h1>Character Sheet</h1>
+      </div>
       <div className="char-sheet-section">
         <div className="section-header">
           <span>Attributes</span>

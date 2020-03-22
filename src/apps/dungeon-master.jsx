@@ -19,7 +19,7 @@ export const DM = observer(props => {
   }
 
   return (
-    <div className="app dm">
+    <div className="app bg dm">
       <div className="column center-content">
         <div className="row">
           <h1>DM Screen</h1>

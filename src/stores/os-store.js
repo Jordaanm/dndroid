@@ -4,6 +4,8 @@ import { delay } from '../utils/promises';
 import { Voice } from '../utils/voice';
 import openSocket from 'socket.io-client';
 
+const DEFAULT_APPS = ['sheet', 'googax'];
+
 export class OSStore {
   currentApp = null;
   isLocked = true;
@@ -11,7 +13,7 @@ export class OSStore {
   hero = null;
   voice = new Voice();
   socket = null;
-  apps = ['sheet'];
+  apps = [];
   dmScreen = {
     players: []
   };
@@ -20,6 +22,17 @@ export class OSStore {
     window.dmMode = () => {
       this.apps.push('dm');
       this.isDM = true;
+    }
+  }
+
+  async enableDefaultApps() {
+    for(let x in DEFAULT_APPS) {
+      console.log("X", x);
+      const appName = DEFAULT_APPS[x];
+      if(!this.apps.includes(appName)) {
+        await delay(1500);
+        this.apps.push(appName);
+      }
     }
   }
 
@@ -42,6 +55,7 @@ export class OSStore {
       this.hero = chosenHero;
       delay(2000).then(() => {
         this.isLocked = false;
+        this.enableDefaultApps();
       });
       this.socket.emit('selectedHero', chosenHero.name);
       return Promise.resolve(chosenHero);
