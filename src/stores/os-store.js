@@ -15,6 +15,7 @@ export class OSStore {
   voice = new Voice();
   socket = null;
   apps = [];
+  searchTerm = '';
   dmScreen = {
     players: []
   };
@@ -119,6 +120,7 @@ decorate(OSStore, {
   currentApp: observable,
   isLocked: observable,
   isDM: observable,
+  searchTerm: observable,
   hero: observable,
   tryUnlock: action,
   apps: observable,

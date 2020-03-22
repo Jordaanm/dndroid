@@ -8,7 +8,8 @@ export const LockScreen = props => {
   const [password, setPass] = useState('');
   const [message, setMessage] = useState('Enter Password to Unlock');
   const [isError, setIsError] = useState(false);
-  const submit = () => {
+  const submit = (e) => {
+    e.preventDefault();
     os.tryUnlock(password)
       .then(hero => {
         setMessage("Password Accepted. Welcome Back, Hero");
@@ -29,16 +30,18 @@ export const LockScreen = props => {
         <div className="center-content">
           <span className={`${isError?'error':''} message`}>{message}</span>
         </div>
-        <div className="password-entry center-content column">
-          <input
-            className="input"
-            type="text"
-            id="os-password"
-            placeholder="Password"
-            value={password}
-            onChange={(e => setPass(e.target.value))}
-          />
-          <button type="button" className="btn" onClick={submit}>SUBMIT</button>
+        <div className="password-entry">
+          <form onSubmit={submit} className="column center-content">
+            <input
+              className="input"
+              type="text"
+              id="os-password"
+              placeholder="Password"
+              value={password}
+              onChange={(e => setPass(e.target.value))}
+            />
+            <button type="submit" className="btn">SUBMIT</button>
+          </form>
         </div>
       </div>
     </div>

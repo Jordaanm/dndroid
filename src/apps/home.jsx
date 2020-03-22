@@ -7,6 +7,7 @@ import "./apps.scss";
 import { Clock } from "../components/header-clock";
 import { appMasterList } from './apps';
 import { useStores } from "../utils/contexts";
+import { useState } from "react";
 
 const moment = require("moment");
 
@@ -16,6 +17,7 @@ const getDateString = () => {
 
 export const Home = observer(props => {
   const { os } = useStores();
+  const [term, setTerm] = useState('');
   const dateString = getDateString();
   const unlockedApps = os.apps.map(x => appMasterList[x]);
 
@@ -23,13 +25,24 @@ export const Home = observer(props => {
     os.currentApp = app.id;
   };
 
+  const search = e => {
+    e.preventDefault();
+    os.searchTerm = term;
+    os.currentApp = "googax";
+  }
+
   return (
     <div className="app home">
       <div className="center-content">
-        <div className="search-bar">
-          <input className="googax" placeholder="Googax" />
-          <button className="search-button">Search</button>
-        </div>
+        <form className="search-bar" onSubmit={search}>
+          <input
+            className="googax"
+            placeholder="Googax"
+            value={term}
+            onChange={e => setTerm(e.target.value)}
+          />
+          <button type="submit" className="search-button">Search</button>
+        </form>
       </div>
       <div className="center-content">
         <div className="clock">

@@ -5,6 +5,7 @@ import { useStores } from "../utils/contexts";
 import { googaxData } from "../googax/index";
 
 import "./googax.scss";
+import { delay } from "../utils/promises";
 
 const searchFor = term => {
   const lTerm = (term || "").toLowerCase();
@@ -20,12 +21,19 @@ const searchFor = term => {
 export const Googax = observer(props => {
   const { os } = useStores();
 
-  const [term, setTerm] = useState("");
-  const [results, setResults] = useState([]);
   const [article, setArticle] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const updateResults = () => {
-    setResults(searchFor(term));
+  
+  const term = os.searchTerm;
+  const results = searchFor(term);
+
+  const updateResults = async (e) => {
+    e.preventDefault();
+    
+    setIsLoading(true);
+    await delay(500);
+    setIsLoading(false);
   };
 
   return (
@@ -35,16 +43,18 @@ export const Googax = observer(props => {
           <h1>Googax</h1>
         </div>
         <div className="row search-bar">
-          <input
-            type="text"
-            className="search"
-            value={term}
-            onChange={e => setTerm(e.target.value)}
-          />
-          <button onClick={updateResults}>Search</button>
+          <form className="row" onSubmit={updateResults}>
+            <input
+              type="text"
+              className="search"
+              value={term}
+              onChange={e => os.searchTerm = e.target.value}
+            />
+            <button type="submit">Search</button>
+          </form>
         </div>
         <Article article={article} closeArticle={() => setArticle(null)} />
-        <Results article={article} results={results} setArticle={setArticle} />
+        <Results article={article} results={results} setArticle={setArticle} isLoading={isLoading} />
       </div>
     </div>
   );
@@ -63,8 +73,15 @@ const Article = ({article, closeArticle}) => {
   );
 }
 
-const Results = ({ results, article, setArticle }) => {
+const Results = ({ results, article, setArticle, isLoading }) => {
   if (article) { return null; }
+  if (isLoading) {
+    return (
+      <div className="column full-x results center-content-top">
+        <span className="tx-xl tx-heavy tx-center">...</span>
+      </div>
+    );
+  }
   
   return (
     <div className="column full-x results">
