@@ -42,6 +42,13 @@ io.on('connection', (client) => {
             theClient.emit('speak', quote);
         } 
     });
+
+    client.on('dmUnlockApp', (appName, id) => {
+        const theClient = clients[id];
+        if(theClient) {
+            theClient.emit('unlockApp', appName);
+        } 
+    });
 });
 
 io.listen(port);

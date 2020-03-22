@@ -4,7 +4,7 @@ import { delay } from '../utils/promises';
 import { Voice } from '../utils/voice';
 import openSocket from 'socket.io-client';
 
-const DEFAULT_APPS = ['sheet', 'googax'];
+const DEFAULT_APPS = ['sheet'];
 
 export class OSStore {
   currentApp = null;
@@ -36,9 +36,16 @@ export class OSStore {
     }
   }
 
+  unlockApp(appName) {
+    if(!this.apps.includes(appName)) {
+      this.apps.push(appName);
+    }
+  }
+
   connectSocket() {
     this.socket = openSocket('http://localhost:8000');
     this.socket.on('speak', msg => this.voice.speak(msg));
+    this.socket.on('unlockApp', appName => this.unlockApp(appName));
     this.socket.on('dmReceivePlayers', p => {
       this.dmScreen.players = p;
     });
