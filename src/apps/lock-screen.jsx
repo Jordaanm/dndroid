@@ -15,6 +15,7 @@ export const LockScreen = props => {
         setIsError(false);
       }).catch(msg => {
         setMessage(msg);
+        os.voice.speak("Error: " + msg);
         setIsError(true);
       })
   }
@@ -26,7 +27,7 @@ export const LockScreen = props => {
           <div className="lock-icon"></div>
         </div>
         <div className="center-content">
-          <span className={`${isError?'erorr':''} message`}>{message}</span>
+          <span className={`${isError?'error':''} message`}>{message}</span>
         </div>
         <div className="password-entry center-content column">
           <input

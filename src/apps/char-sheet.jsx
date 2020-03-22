@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import './char-sheet.scss';
 
-import { fighter } from "../data/hero-presets/heroes";
 import { populateSheet } from "../utils/char-utils";
 import { useStores } from "../utils/contexts";
 
@@ -72,7 +71,7 @@ export const CharSheetAttribute = props => {
 };
 
 export const CharSheetSkill = props => {
-  const {id, label, isProficient, score} = props;
+  const { label, isProficient, score} = props;
   const profClass = isProficient ? 'filled' : '';
   const scoreStr = (score > 0 ? '+' : '') + score;
 
