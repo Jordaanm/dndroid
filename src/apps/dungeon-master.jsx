@@ -30,6 +30,7 @@ export const DM = observer(props => {
         <div className="row">
           <span>Target:</span>
           <select value={selectedHero} onChange={e => setSelectedHero(e.target.value)}>
+            <option value="">NONE</option>
             {os.dmScreen.players.map(x => <option key={x.id} value={x.id}>{x.name}</option>)}
           </select>
           <button onClick={() => refresh()}>REFRESH</button>
@@ -40,6 +41,7 @@ export const DM = observer(props => {
         </div>
         <div className="row">
           <select value={selectedApp} onChange={e => setSelectedApp(e.target.value)}>
+            <option value="">NONE</option>
             {Object.values(appMasterList).map(app => <option key={app.id} value={app.id}>{app.name}</option>)}
           </select>
           <button onClick={() => unlockApp()}>UnlockApp</button>

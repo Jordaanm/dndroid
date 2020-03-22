@@ -46,6 +46,7 @@ io.on('connection', (client) => {
     client.on('dmUnlockApp', (appName, id) => {
         const theClient = clients[id];
         if(theClient) {
+            console.log("Unlocking App for the ", heroes.find(x => x.id === id).name);
             theClient.emit('unlockApp', appName);
         } 
     });
