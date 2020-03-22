@@ -25,7 +25,7 @@ export const paladin = {
         wis: 12,
         cha: 16
     },
-    skillProfs: ['religion', 'investigation', 'insight']
+    skillProfs: ['religion', 'persuasion', 'insight']
 };
 
 export const ranger = {

@@ -3,6 +3,7 @@ import './char-sheet.scss';
 
 import { fighter } from "../data/hero-presets/heroes";
 import { populateSheet } from "../utils/char-utils";
+import { useStores } from "../utils/contexts";
 
 const sortSkills = (skills, skillSort) => {
   if (skillSort === 'alpha') {
@@ -16,7 +17,8 @@ const sortSkills = (skills, skillSort) => {
 
 export const CharSheet = props => {
   // const {} = props;
-  const fullSheet = populateSheet(fighter);
+  const { os } = useStores();
+  const fullSheet = populateSheet(os.hero);
   const [skillSort, setSkillSort] = useState(null);
   const [onlyProf, setOnlyProf] = useState(false);
 
