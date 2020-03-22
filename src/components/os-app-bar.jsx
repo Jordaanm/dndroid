@@ -8,7 +8,7 @@ export const OSAppBar = props => {
 
   return (
     <div className="apps">
-      <div className="app-shortcut sheet" onClick={openApp('charsheet')}>
+      <div className="app-shortcut sheet" onClick={openApp('sheet')}>
         <img
           src="http://crimenb.ca/wp-content/uploads/2014/12/stats_icon2.png"
           alt="CharacterSheet"

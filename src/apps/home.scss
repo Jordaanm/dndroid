@@ -37,12 +37,10 @@
   background-color: transparent;
   height: 150px;
   width: 200px;
-  top: 120px;
-  left: 50%;
-  transform: translateX(-50%);
   user-select: none;
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 10px;
+  margin-bottom: 2em;
 }
 
 .clock .time-main {
@@ -82,4 +80,12 @@
   left: 225px;
   user-select: none;
   cursor: pointer;
+}
+
+.launcher-apps {
+  width: 100%;
+  padding: 2em;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
 }

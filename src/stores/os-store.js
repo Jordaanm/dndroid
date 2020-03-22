@@ -7,13 +7,28 @@ import openSocket from 'socket.io-client';
 export class OSStore {
   currentApp = null;
   isLocked = true;
+  isDM = false;
   hero = null;
   voice = new Voice();
   socket = null;
+  apps = ['sheet'];
+  dmScreen = {
+    players: []
+  };
+
+  constructor() {
+    window.dmMode = () => {
+      this.apps.push('dm');
+      this.isDM = true;
+    }
+  }
 
   connectSocket() {
     this.socket = openSocket('http://localhost:8000');
     this.socket.on('speak', msg => this.voice.speak(msg));
+    this.socket.on('dmReceivePlayers', p => {
+      this.dmScreen.players = p;
+    });
     // os.socket.on('timer', timestamp => console.log(timestamp));
     // os.socket.emit('subscribeToTimer', 1000);
     return () => this.socket.close();
@@ -37,6 +52,9 @@ export class OSStore {
 decorate(OSStore, {
   currentApp: observable,
   isLocked: observable,
+  isDM: observable,
   hero: observable,
-  tryUnlock: action
+  tryUnlock: action,
+  apps: observable,
+  dmScreen: observable
 });

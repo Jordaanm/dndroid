@@ -2,15 +2,18 @@ const io = require('socket.io')();
 const port = 8000;
 
 let heroes = [];
+let clients = {};
 
 io.on('connection', (client) => {
     heroes.push({id: client.id, name: 'Client'});
+    clients[client.id] = client;
     console.log("Heroes", heroes.map(x => x.name).join(", "));
 
     client.on('disconnect', () => {
         const i = heroes.findIndex(x => x.id === client.id);
         console.log(`${heroes[i].name} disconnected`);
         heroes.splice(i, 1);
+        delete clients[client.id];
     });
 
     client.on('subscribeToTimer', (interval) => {
@@ -26,7 +29,19 @@ io.on('connection', (client) => {
         setTimeout(() => {
             client.emit('speak', `Welcome back, ${myHero.name}`);
         }, 3000);
-    })
+    });
+
+    client.on('dmGetPlayers', () => {
+        console.log("GET PLAYERS", heroes);
+        client.emit('dmReceivePlayers', heroes);
+    });
+
+    client.on('dmForceSpeak', (quote, id) => {
+        const theClient = clients[id];
+        if(theClient) {
+            theClient.emit('speak', quote);
+        } 
+    });
 });
 
 io.listen(port);

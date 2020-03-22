@@ -10,10 +10,13 @@ import { CharSheet } from "./char-sheet";
 import { useStores } from "../utils/contexts";
 import { observer } from "mobx-react-lite";
 import { LockScreen } from "./lock-screen";
+import { DM } from "./dungeon-master";
 
 const getApp = currentApp => {
-  switch(currentApp) {
-    case "charsheet": return <CharSheet />;
+  console.log("CURRENT APP", currentApp);
+  switch((currentApp || '').toLowerCase()) {
+    case "sheet": return <CharSheet />;
+    case "dm": return <DM />;
     default: return <Home />;
   }
 }

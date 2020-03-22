@@ -1,0 +1,29 @@
+.launcher-app {
+  padding: 0.5em;
+  background-color: rgba(0, 0, 0, 0.25);
+  color: white;
+  border-radius: 10px;
+  display: inline-block;
+  text-align: center;
+  margin: 0.5em;
+
+  .icon {
+    height: 5em;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+
+    &.icon--stats {
+      background-image: url('/icon-stats.png');
+    }
+    &.icon--d20 {
+      background-image: url('/icon-d20.png');
+    }
+  }
+
+  .label {
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
