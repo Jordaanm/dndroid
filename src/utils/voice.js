@@ -5,7 +5,6 @@ export class Voice {
   defaultWinVoiceName = "Microsoft Hazel Desktop - English (Great Britain)";
 
   findVoice() {
-    console.log(SS.getVoices().map(x => x.name));
     this.chosenVoice = SS.getVoices().find(x => 
       x.name === this.defaultVoiceName || x.name === this.defaultWinVoiceName
     );

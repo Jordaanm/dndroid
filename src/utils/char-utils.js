@@ -14,7 +14,6 @@ export const populateSheet = data => {
     const skills = character.skills.map(skill => {
         const isProficient = data.skillProfs.includes(skill.id);
         const baseBonus = attrBonus(data.attributes[skill.basis]);
-        console.log(skill);
         return {
             ...skill,
             isProficient,

@@ -14,7 +14,6 @@ import { DM } from "./dungeon-master";
 import { Googax } from "./googax";
 
 const getApp = currentApp => {
-  console.log("CURRENT APP", currentApp);
   switch((currentApp || '').toLowerCase()) {
     case "sheet": return <CharSheet />;
     case "dm": return <DM />;
@@ -26,7 +25,6 @@ const getApp = currentApp => {
 export const OS = observer(props => {
   const { os } = useStores();
 
-  console.log("os");
   const app = getApp(os.currentApp);
   const heroName = (os.hero && os.hero.name || '').toLowerCase();
   return (

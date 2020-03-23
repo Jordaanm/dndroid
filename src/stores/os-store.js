@@ -36,7 +36,6 @@ export class OSStore {
 
   async enableDefaultApps() {
     for(let x in DEFAULT_APPS) {
-      console.log("X", x);
       const appName = DEFAULT_APPS[x];
       if(!this.apps.includes(appName)) {
         await delay(1500);
@@ -64,8 +63,6 @@ export class OSStore {
     this.socket.on('dmReceivePlayers', p => {
       this.dmScreen.players = p;
     });
-    // os.socket.on('timer', timestamp => console.log(timestamp));
-    // os.socket.emit('subscribeToTimer', 1000);
     return () => this.socket.close();
   }
 
