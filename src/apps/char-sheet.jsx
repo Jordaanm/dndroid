@@ -42,7 +42,7 @@ export const CharSheet = () => {
         </div>}
         <div className="attr-item">
           <div className="main column">
-            <span className="label tx-heavy tx-s tx-upper">AC</span>
+            <span className="label tx-heavy tx-s tx-upper">Armor</span>
             <span className="bonus tx-xl tx-heavy">{os.hero.ac}</span>
           </div>
         </div>
@@ -115,6 +115,7 @@ const Feature = ({feature}) => {
   return (
     <article className="feature-item column full-x">
       <h3 className="">{feature.name}</h3>
+      {feature.usageType && <h4>Uses: {feature.uses} per {feature.usageType}</h4>}
       <ReactMarkdown source={feature.description} />
     </article>
   );
