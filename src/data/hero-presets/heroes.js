@@ -1,3 +1,9 @@
+export const usageTypes = {
+    SR: 'Short Rest',
+    LR: 'Long Rest',
+    EN: 'Encounter'
+}
+
 export const fighter = {
     name: 'Fighter',
     password: 'champion',
@@ -11,7 +17,29 @@ export const fighter = {
         wis: 10,
         cha: 10
     },
-    skillProfs: ['athletics', 'perception', 'acrobatics']
+    skillProfs: ['athletics', 'perception', 'acrobatics'],
+    features: [
+        {
+            name: 'Improved Critical',
+            description: 'Your weapon attacks score a critical hit on an attack roll of 19 or 20'
+        },
+        {
+            name: 'Second Wind',
+            description: 'On your turn, you can use a minor action to regain hit points equal to 1d10 + 4',
+            usageType: usageTypes.SR,
+            uses: 1
+        },
+        {
+            name: 'Action Surge',
+            description: 'While in combat, you may perform an extra action on your turn',
+            usageType: usageTypes.SR,
+            uses: 1
+        },
+        {
+            name: 'Dual Wielding',
+            description: 'You may attack with your secondary hand as a minor action'
+        }
+    ]
 };
 
 export const paladin = {
@@ -27,7 +55,8 @@ export const paladin = {
         wis: 12,
         cha: 16
     },
-    skillProfs: ['religion', 'persuasion', 'insight']
+    skillProfs: ['religion', 'persuasion', 'insight'],
+    features: []
 };
 
 export const ranger = {
@@ -43,7 +72,8 @@ export const ranger = {
         wis: 14,
         cha: 10
     },
-    skillProfs: ['nature', 'animal_handling', 'survival']
+    skillProfs: ['nature', 'animal_handling', 'survival'],
+    features: []
 };
 
 export const allHeroes = [

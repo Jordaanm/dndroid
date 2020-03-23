@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import {OS} from './apps/os';
 
 import './global.scss';
+import './fonts.scss';
+import './phb.scss';
 import { useStores } from './utils/contexts';
 
 

@@ -25,33 +25,37 @@ export const CharSheet = props => {
   const filteredSkills = onlyProf ? sortedSkills.filter(x => x.isProficient) : sortedSkills;
 
   return (
-    <div className="app bg character-sheet">
-      <div className="row center-content">
-        <h1>Character Sheet</h1>
-      </div>
-      <div className="char-sheet-section">
+    <div className="app phb character-sheet">
+      <h1>Character Sheet</h1>
         <div className="section-header">
-          <span>Attributes</span>
+          <h2>Attributes</h2>
         </div>
-        <ul className="attribute-list">
+        <div className="attribute-list">
           {fullSheet.attributes.map(attr => (
             <CharSheetAttribute key={attr.id} {...attr} />
           ))}
-        </ul>
-      </div>
-      <div className="char-sheet-section">
-        <div className="section-header">
-          <span>Skills</span>
-          <button onClick={() => setSkillSort('alpha')}>Az</button> 
-          <button onClick={() => setSkillSort('bonus')}>+-</button>
-          <input type="checkbox" onChange={() => setOnlyProf(!onlyProf)}/>
+        </div>
+        <h2>Skills</h2>
+        <div className="section-header row">
+          <div>
+            <button onClick={() => setSkillSort('alpha')}>Az</button> 
+          </div>
+          <div>
+            <button onClick={() => setSkillSort('bonus')}>+-</button>
+          </div>
+          <div>
+            <input type="checkbox" onChange={() => setOnlyProf(!onlyProf)}/>
+          </div>
         </div>
         <ul className="skill-list">
           {filteredSkills.map(skill => (
             <CharSheetSkill key={skill.id} {...skill} />
           ))}
         </ul>
-      </div>
+        <h2>Features</h2>
+        <section className="">
+          {fullSheet.features.map(f => <Feature feature={f} key={f.name} />)}
+        </section>
     </div>
   );
 };
@@ -61,7 +65,7 @@ export const CharSheetAttribute = props => {
   const bonusStr = (bonus > 0 ? '+' : '') + bonus.toString(); 
 
   return (
-    <li className="attribute-list-item">
+    <div className="attribute-list-item">
       <div className="attr-item">
         <div className="main column">
           <span className="label tx-heavy tx-s tx-upper">{label}</span>
@@ -69,7 +73,7 @@ export const CharSheetAttribute = props => {
         </div>
         <span className="score tx-heavy">{score}</span>
       </div>
-    </li>
+    </div>
   );
 };
 
@@ -86,3 +90,14 @@ export const CharSheetSkill = props => {
     </li>
   );
 };
+
+const Feature = ({feature}) => {
+  return (
+    <article className="feature-item column full-x">
+      <h3 className="">{feature.name}</h3>
+      <p>
+        <span className="tx-m tx-medium">{feature.description}</span>
+      </p>
+    </article>
+  );
+}
