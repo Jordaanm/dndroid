@@ -1,23 +1,26 @@
 import React from "react";
-import "./os.scss";
+import { observer } from "mobx-react-lite";
 
-import { OSNavBar } from "../components/os-nav-bar";
-import { OSAppBar } from "../components/os-app-bar";
-import { OSNotificationBar } from "../components/os-notification-bar";
+import "./os.scss";
 
 import { Home } from "./home";
 import { CharSheet } from "./char-sheet";
-import { useStores } from "../utils/contexts";
-import { observer } from "mobx-react-lite";
 import { LockScreen } from "./lock-screen";
 import { DM } from "./dungeon-master";
 import { Googax } from "./googax";
+import { Spells } from "./spells";
+
+import { OSNavBar } from "../components/os-nav-bar";
+// import { OSAppBar } from "../components/os-app-bar";
+import { OSNotificationBar } from "../components/os-notification-bar";
+import { useStores } from "../utils/contexts";
 
 const getApp = currentApp => {
   switch((currentApp || '').toLowerCase()) {
     case "sheet": return <CharSheet />;
     case "dm": return <DM />;
     case "googax": return <Googax />;
+    case "spells": return <Spells />;
     default: return <Home />;
   }
 }
@@ -26,7 +29,7 @@ export const OS = observer(props => {
   const { os } = useStores();
 
   const app = getApp(os.currentApp);
-  const heroName = (os.hero && os.hero.name || '').toLowerCase();
+  const heroName = ((os.hero && os.hero.name) || '').toLowerCase();
   return (
     <div className={`container ${heroName} ${os.isLocked ? 'blur' : ''}`}>
       <OSNotificationBar />

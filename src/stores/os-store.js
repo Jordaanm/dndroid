@@ -1,5 +1,5 @@
 import { observable, decorate, action} from 'mobx'
-import { allHeroes } from '../data/hero-presets/heroes';
+import { allHeroes, PrimaryResources } from '../data/hero-presets/heroes';
 import { delay } from '../utils/promises';
 import { Voice } from '../utils/voice';
 import { populateSheet } from "../utils/char-utils";
@@ -39,9 +39,13 @@ export class OSStore {
     for(let x in DEFAULT_APPS) {
       const appName = DEFAULT_APPS[x];
       if(!this.apps.includes(appName)) {
-        await delay(1500);
+        await delay(750);
         this.apps.push(appName);
       }
+    }
+    if (this.hero.primaryResource === PrimaryResources.MANA) {
+      await delay(750);
+      this.apps.push("spells");
     }
   }
 

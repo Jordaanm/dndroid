@@ -1,4 +1,5 @@
 import { character } from '../data/definitions/character-sheet';
+import { spells } from '../data/spells';
 
 export const attrBonus = score => Math.floor((score - 10) / 2);
 export const profBonus = _ => 3;
@@ -27,10 +28,13 @@ export const populateSheet = data => {
         };
     });
 
+    const characterSpells = (data.spells || []).map(name => spells.find(sp => sp.name === name));
+
     return {
         ...data,
         attributes,
         skills,
+        spells: characterSpells,
         currentHP,
         currentResource
     };

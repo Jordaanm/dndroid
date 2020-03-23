@@ -27,9 +27,9 @@ io.on('connection', (client) => {
         const myHero = heroes.find(x => x.id === client.id);
         myHero.name = heroName;
         myHero.user = userName;
-        setTimeout(() => {
-            client.emit('speak', `Welcome back, ${userName} the ${myHero.name}`);
-        }, 3000);
+        // setTimeout(() => {
+        //     client.emit('speak', `Welcome back, ${userName} the ${myHero.name}`);
+        // }, 3000);
     });
 
     client.on('dmGetPlayers', () => {
