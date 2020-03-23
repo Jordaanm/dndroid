@@ -2,6 +2,7 @@ import { observable, decorate, action} from 'mobx'
 import { allHeroes } from '../data/hero-presets/heroes';
 import { delay } from '../utils/promises';
 import { Voice } from '../utils/voice';
+import { populateSheet } from "../utils/char-utils";
 import openSocket from 'socket.io-client';
 
 const DEFAULT_APPS = ['sheet'];
@@ -71,7 +72,7 @@ export class OSStore {
     if(!chosenHero) {
       return Promise.reject("Incorrect Password, Try Again");
     } else {
-      this.hero = chosenHero;
+      this.hero = populateSheet(chosenHero);
       this.user = user;
       delay(2000).then(() => {
         this.isLocked = false;
@@ -84,7 +85,7 @@ export class OSStore {
 
   save() {
     const data = {
-      password: this.hero.password,
+      hero: this.hero,
       user: this.user,
       unlockedApps: this.apps,
       health: 0, //TODO
@@ -103,11 +104,10 @@ export class OSStore {
     const data = JSON.parse(dataString);
 
     //Load Hero   
-    const chosenHero = allHeroes.find(x => x.password === data.password.toLowerCase());
-    this.hero = chosenHero;
+    this.hero = data.hero;
     this.user = data.user;
     this.isLocked = false;
-    this.socket.emit('selectedHero', chosenHero.name, this.user);
+    this.socket.emit('selectedHero', this.name, this.user);
     
     //Unlock Apps
     this.apps = data.unlockedApps;

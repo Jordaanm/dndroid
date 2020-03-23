@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import ReactMarkdown from 'react-markdown';
 import './char-sheet.scss';
 
-import { populateSheet } from "../utils/char-utils";
 import { useStores } from "../utils/contexts";
-
 const sortSkills = (skills, skillSort) => {
   if (skillSort === 'alpha') {
     return skills.sort((a, b) => a.label > b.label ? 1 : -1);
@@ -14,14 +13,13 @@ const sortSkills = (skills, skillSort) => {
   }
 }
 
-export const CharSheet = props => {
-  // const {} = props;
+export const CharSheet = () => {
   const { os } = useStores();
-  const fullSheet = populateSheet(os.hero);
+  const { hero } = os;
   const [skillSort, setSkillSort] = useState(null);
   const [onlyProf, setOnlyProf] = useState(false);
 
-  const sortedSkills = sortSkills(fullSheet.skills, skillSort);
+  const sortedSkills = sortSkills(hero.skills, skillSort);
   const filteredSkills = onlyProf ? sortedSkills.filter(x => x.isProficient) : sortedSkills;
 
   return (
@@ -29,30 +27,30 @@ export const CharSheet = props => {
       <h1>Character Sheet</h1>
 
       <h2>{os.user} the {os.hero.name} </h2>
-      <div className="row">
+      <div className="row center-content-top flex-sa">
       <div className="attr-item">
           <div className="main column">
             <span className="label tx-heavy tx-s tx-upper">HP</span>
-            <span className="bonus tx-l tx-heavy">{os.hero.maxHP} / {os.hero.maxHP}</span>
+            <span className="bonus tx-xl tx-heavy">{os.hero.currentHP || 0} / {os.hero.maxHP}</span>
           </div>
         </div>        
-        <div className="attr-item">
+        {os.hero.primaryResource && <div className="attr-item">
           <div className="main column">
-            <span className="label tx-heavy tx-s tx-upper">Mana</span>
-            <span className="bonus tx-l tx-heavy">{os.hero.maxMana} / {os.hero.maxMana}</span>
+            <span className="label tx-heavy tx-s tx-upper">{os.hero.primaryResource}</span>
+            <span className="bonus tx-xl tx-heavy">{os.hero.currentResource || 0} / {os.hero.maxResource}</span>
           </div>
-        </div>
+        </div>}
         <div className="attr-item">
           <div className="main column">
             <span className="label tx-heavy tx-s tx-upper">AC</span>
-            <span className="bonus tx-l tx-heavy">{os.hero.ac} / {os.hero.ac}</span>
+            <span className="bonus tx-xl tx-heavy">{os.hero.ac}</span>
           </div>
         </div>
       </div>
       
       <h2>Attributes</h2>
       <div className="attribute-list">
-        {fullSheet.attributes.map(attr => (
+        {hero.attributes.map(attr => (
           <CharSheetAttribute key={attr.id} {...attr} />
         ))}
       </div>
@@ -76,7 +74,7 @@ export const CharSheet = props => {
       </ul>
       <h2>Features</h2>
       <section className="">
-        {fullSheet.features.map(f => <Feature feature={f} key={f.name} />)}
+        {hero.features.map(f => <Feature feature={f} key={f.name} />)}
       </section>
     </div>
   );
@@ -117,9 +115,7 @@ const Feature = ({feature}) => {
   return (
     <article className="feature-item column full-x">
       <h3 className="">{feature.name}</h3>
-      <p>
-        <span className="tx-m tx-medium">{feature.description}</span>
-      </p>
+      <ReactMarkdown source={feature.description} />
     </article>
   );
 }
