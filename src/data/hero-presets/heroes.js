@@ -18,12 +18,12 @@ export const fighter = {
     maxResource: 0,
     primaryResource: null,
     attributes: {
-        str: 16,
+        str: 18,
         dex: 14,
-        con: 13,
-        int: 12,
-        wis: 10,
-        cha: 10
+        con: 15,
+        int: 11,
+        wis: 13,
+        cha: 9
     },
     skillProfs: ['athletics', 'intimidation', 'acrobatics'],
     features: [
@@ -63,12 +63,12 @@ export const paladin = {
     maxResource: 14,
     primaryResource: PrimaryResources.MANA,
     attributes: {
-        str: 13,
-        dex: 10,
-        con: 14,
+        str: 14,
+        dex: 9,
+        con: 16,
         int: 10,
         wis: 12,
-        cha: 16
+        cha: 18
     },
     skillProfs: ['religion', 'persuasion', 'medicine'],
     features: [
@@ -128,12 +128,12 @@ export const ranger = {
     maxResource: 14,
     primaryResource: PrimaryResources.MANA,
     attributes: {
-        str: 13,
-        dex: 16,
-        con: 12,
+        str: 12,
+        dex: 18,
+        con: 14,
         int: 10,
-        wis: 14,
-        cha: 10
+        wis: 16,
+        cha: 9
     },
     skillProfs: ['nature', 'animal_handling', 'survival'],
     features: [{
@@ -176,16 +176,16 @@ export const monk = {
     password: 'balance',
     classes: ['Monk'],
     ac: 15,
-    maxHP: 44,
+    maxHP: 46,
     primaryResource: PrimaryResources.KI,
     maxResource: 5,
     attributes: {
-        str: 13,
-        dex: 16,
-        con: 12,
-        int: 10,
-        wis: 14,
-        cha: 10
+        str: 10,
+        dex: 18,
+        con: 14,
+        int: 9,
+        wis: 16,
+        cha: 12
     },
     skillProfs: ['acrobatics', 'history', 'stealth'],
     features: [
@@ -246,12 +246,12 @@ export const bard = {
     maxResource: 27,
     primaryResource: PrimaryResources.MANA,
     attributes: {
-        str: 13,
-        dex: 14,
-        con: 10,
-        int: 13,
+        str: 12,
+        dex: 16,
+        con: 9,
+        int: 14,
         wis: 10,
-        cha: 16
+        cha: 18
     },
     skillProfs: ['persuasion', 'deception', 'performance'],
     skillExpertise: ['persuasion', 'deception'],
@@ -300,12 +300,12 @@ export const sorcerer = {
     maxResource: 27,
     primaryResource: PrimaryResources.MANA,
     attributes: {
-        str: 10,
+        str: 9,
         dex: 12,
-        con: 14,
-        int: 16,
+        con: 16,
+        int: 18,
         wis: 10,
-        cha: 13
+        cha: 14
     },
     skillProfs: ['arcana', 'history', 'investigation'],
     features: [{
