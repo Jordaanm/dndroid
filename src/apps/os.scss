@@ -26,12 +26,29 @@
     background-repeat: repeat;
   }
 
-  &.ranger:before {
-    background-image: url('/bow-tile.png');
+
+  &.bard:before {
+    background-image: url('/bard-tile.png');
   }
 
   &.fighter:before {
     background-image: url('/sword-tile.png');
+  }
+
+  &.monk:before {
+    background-image: url('/monk-tile.png');
+  }
+
+  &.paladin:before {
+    background-image: url('/paladin-tile.png');
+  }
+
+  &.ranger:before {
+    background-image: url('/bow-tile.png');
+  }
+
+  &.sorcerer:before {
+    background-image: url('/magic-tile.png');
   }
 
   &.blur:before {

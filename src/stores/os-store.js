@@ -12,6 +12,7 @@ export class OSStore {
   isLocked = true;
   isDM = false;
   hero = null;
+  user = '';
   voice = new Voice();
   socket = null;
   apps = [];
@@ -26,8 +27,10 @@ export class OSStore {
       this.isDM = true;
     }
     setInterval(() => {
-      this.save();
-      console.log("Saving...");
+      if (!this.isLocked) {
+        this.save();
+        console.log("Saving...");
+      }
     }, 15000);
   }
 
@@ -66,17 +69,18 @@ export class OSStore {
     return () => this.socket.close();
   }
 
-  tryUnlock(password) {
+  tryUnlock(password, user) {
     const chosenHero = allHeroes.find(x => x.password === password.toLowerCase());
     if(!chosenHero) {
       return Promise.reject("Incorrect Password, Try Again");
     } else {
       this.hero = chosenHero;
+      this.user = user;
       delay(2000).then(() => {
         this.isLocked = false;
         this.enableDefaultApps();
       });
-      this.socket.emit('selectedHero', chosenHero.name);
+      this.socket.emit('selectedHero', chosenHero.name, user);
       return Promise.resolve(chosenHero);
     }
   }
@@ -84,6 +88,7 @@ export class OSStore {
   save() {
     const data = {
       password: this.hero.password,
+      user: this.user,
       unlockedApps: this.apps,
       health: 0, //TODO
       mana: 0, //TODO
@@ -103,8 +108,9 @@ export class OSStore {
     //Load Hero   
     const chosenHero = allHeroes.find(x => x.password === data.password.toLowerCase());
     this.hero = chosenHero;
+    this.user = data.user;
     this.isLocked = false;
-    this.socket.emit('selectedHero', chosenHero.name);
+    this.socket.emit('selectedHero', chosenHero.name, this.user);
     
     //Unlock Apps
     this.apps = data.unlockedApps;
@@ -122,6 +128,7 @@ decorate(OSStore, {
   isDM: observable,
   searchTerm: observable,
   hero: observable,
+  user: observable,
   tryUnlock: action,
   apps: observable,
   dmScreen: observable,

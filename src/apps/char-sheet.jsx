@@ -27,35 +27,57 @@ export const CharSheet = props => {
   return (
     <div className="app phb character-sheet">
       <h1>Character Sheet</h1>
-        <div className="section-header">
-          <h2>Attributes</h2>
-        </div>
-        <div className="attribute-list">
-          {fullSheet.attributes.map(attr => (
-            <CharSheetAttribute key={attr.id} {...attr} />
-          ))}
-        </div>
-        <h2>Skills</h2>
-        <div className="section-header row">
-          <div>
-            <button onClick={() => setSkillSort('alpha')}>Az</button> 
+
+      <h2>{os.user} the {os.hero.name} </h2>
+      <div className="row">
+      <div className="attr-item">
+          <div className="main column">
+            <span className="label tx-heavy tx-s tx-upper">HP</span>
+            <span className="bonus tx-l tx-heavy">{os.hero.maxHP} / {os.hero.maxHP}</span>
           </div>
-          <div>
-            <button onClick={() => setSkillSort('bonus')}>+-</button>
-          </div>
-          <div>
-            <input type="checkbox" onChange={() => setOnlyProf(!onlyProf)}/>
+        </div>        
+        <div className="attr-item">
+          <div className="main column">
+            <span className="label tx-heavy tx-s tx-upper">Mana</span>
+            <span className="bonus tx-l tx-heavy">{os.hero.maxMana} / {os.hero.maxMana}</span>
           </div>
         </div>
-        <ul className="skill-list">
-          {filteredSkills.map(skill => (
-            <CharSheetSkill key={skill.id} {...skill} />
-          ))}
-        </ul>
-        <h2>Features</h2>
-        <section className="">
-          {fullSheet.features.map(f => <Feature feature={f} key={f.name} />)}
-        </section>
+        <div className="attr-item">
+          <div className="main column">
+            <span className="label tx-heavy tx-s tx-upper">AC</span>
+            <span className="bonus tx-l tx-heavy">{os.hero.ac} / {os.hero.ac}</span>
+          </div>
+        </div>
+      </div>
+      
+      <h2>Attributes</h2>
+      <div className="attribute-list">
+        {fullSheet.attributes.map(attr => (
+          <CharSheetAttribute key={attr.id} {...attr} />
+        ))}
+      </div>
+
+      <h2>Skills</h2>
+      <div className="section-header row">
+        <div>
+          <button onClick={() => setSkillSort('alpha')}>Az</button> 
+        </div>
+        <div>
+          <button onClick={() => setSkillSort('bonus')}>+-</button>
+        </div>
+        <div>
+          <input type="checkbox" onChange={() => setOnlyProf(!onlyProf)}/>
+        </div>
+      </div>
+      <ul className="skill-list">
+        {filteredSkills.map(skill => (
+          <CharSheetSkill key={skill.id} {...skill} />
+        ))}
+      </ul>
+      <h2>Features</h2>
+      <section className="">
+        {fullSheet.features.map(f => <Feature feature={f} key={f.name} />)}
+      </section>
     </div>
   );
 };

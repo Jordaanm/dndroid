@@ -4,13 +4,15 @@ import { useStores } from '../utils/contexts';
 import "./lock-screen.scss";
 
 export const LockScreen = props => {
+  const initialUsername = window.location.hash.substr(1);
   const { os } = useStores();
   const [password, setPass] = useState('');
+  const [user, setUser] = useState(initialUsername);
   const [message, setMessage] = useState('Enter Password to Unlock');
   const [isError, setIsError] = useState(false);
   const submit = (e) => {
     e.preventDefault();
-    os.tryUnlock(password)
+    os.tryUnlock(password, user)
       .then(hero => {
         setMessage("Password Accepted. Welcome Back, Hero");
         setIsError(false);
@@ -35,6 +37,14 @@ export const LockScreen = props => {
             <input
               className="input"
               type="text"
+              id="os-user"
+              placeholder="Name"
+              value={user}
+              onChange={(e => setUser(e.target.value))}
+            />
+            <input
+              className="input"
+              type="password"
               id="os-password"
               placeholder="Password"
               value={password}

@@ -5,7 +5,7 @@ let heroes = [];
 let clients = {};
 
 io.on('connection', (client) => {
-    heroes.push({id: client.id, name: 'Client'});
+    heroes.push({id: client.id, name: 'Client', user: 'Anonymous'});
     clients[client.id] = client;
     console.log("Heroes", heroes.map(x => x.name).join(", "));
 
@@ -23,11 +23,12 @@ io.on('connection', (client) => {
         }, interval);
     });
 
-    client.on('selectedHero', (heroName) => {
+    client.on('selectedHero', (heroName, userName) => {
         const myHero = heroes.find(x => x.id === client.id);
         myHero.name = heroName;
+        myHero.user = userName;
         setTimeout(() => {
-            client.emit('speak', `Welcome back, ${myHero.name}`);
+            client.emit('speak', `Welcome back, ${userName} the ${myHero.name}`);
         }, 3000);
     });
 
