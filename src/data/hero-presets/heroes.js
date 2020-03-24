@@ -51,7 +51,16 @@ export const fighter = {
             name: 'Extra Attack',
             description: 'You can attack twice, instead of once, whenever you take the Attack action on your turn'
         }
-    ]
+    ], 
+    attacks: [{
+        name: 'Longsword',
+        damage: '1d8+{STR}',
+        range: ''
+    }, {
+        name: 'Javelin',
+        damage: '1d6+{STR}',
+        range: '30ft/120ft'
+    }]
 };
 
 export const paladin = {
@@ -116,7 +125,16 @@ export const paladin = {
         'sanctuary',
         'lesser restoration',
         'zone of truth'
-    ]
+    ], 
+    attacks: [{
+        name: 'Warhammer',
+        damage: '1d10+{STR}',
+        range: ''
+    }, {
+        name: 'Throwing Hammer',
+        damage: '1d4+{STR}',
+        range: '20ft/60ft'
+    }]
 };
 
 export const ranger = {
@@ -168,7 +186,16 @@ export const ranger = {
         name: 'Extra Attack',
         description: 'You can attack twice, instead of once, whenever you take the Attack action on your turn'
     }],
-    spells: []
+    spells: ['hunters mark'],
+    attacks: [{
+        name: 'Longbow',
+        damage: '1d8+{DEX}+2',
+        range: '150ft/600ft'
+    }, {
+        name: 'Dagger',
+        damage: '1d4+{DEX}',
+        range: '20ft/60ft'
+    }]
 };
 
 export const monk = {
@@ -232,9 +259,16 @@ export const monk = {
             description: 'You can spend **1 Ki point** to Dodge as a minor action on your turn, giving attacks against you **Disadvantage** until your next turn'
         }
     ],
-    spells: [
-        
-    ]
+    spells: [], 
+    attacks: [{
+        name: 'Unarmed Strike',
+        damage: '1d6+{DEX}',
+        range: ''
+    }, {
+        name: 'Shuriken',
+        damage: '1d4+{DEX}',
+        range: '30ft/120ft'
+    }]
 };
 
 export const bard = {
@@ -288,7 +322,16 @@ export const bard = {
     }],
     spells: [
 
-    ]
+    ], 
+    attacks: [{
+        name: 'Rapier',
+        damage: '1d8+{DEX}',
+        range: ''
+    }, {
+        name: 'Whip',
+        damage: '1d+{DEX}',
+        range: '15ft'
+    }]
 };
 
 export const sorcerer = {
@@ -341,7 +384,12 @@ export const sorcerer = {
     }],
     spells: [
         
-    ]
+    ], 
+    attacks: [{
+        name: 'Quarterstaff',
+        damage: '1d6+{STR}',
+        range: ''
+    }]
 };
 
 export const allHeroes = [

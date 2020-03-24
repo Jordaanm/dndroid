@@ -8,7 +8,7 @@ import { CharSheet } from "./char-sheet";
 import { LockScreen } from "./lock-screen";
 import { DM } from "./dungeon-master";
 import { Googax } from "./googax";
-import { Spells } from "./spells";
+import { Combat } from "./combat";
 
 import { OSNavBar } from "../components/os-nav-bar";
 // import { OSAppBar } from "../components/os-app-bar";
@@ -20,7 +20,7 @@ const getApp = currentApp => {
     case "sheet": return <CharSheet />;
     case "dm": return <DM />;
     case "googax": return <Googax />;
-    case "spells": return <Spells />;
+    case "combat": return <Combat />;
     default: return <Home />;
   }
 }

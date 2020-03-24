@@ -5,7 +5,7 @@ import { Voice } from '../utils/voice';
 import { populateSheet } from "../utils/char-utils";
 import openSocket from 'socket.io-client';
 
-const DEFAULT_APPS = ['sheet'];
+const DEFAULT_APPS = ['sheet', 'combat'];
 const LOCAL_STORAGE_CHAR_KEY = 'characterData';
 
 export class OSStore {
@@ -42,10 +42,6 @@ export class OSStore {
         await delay(750);
         this.apps.push(appName);
       }
-    }
-    if (this.hero.primaryResource === PrimaryResources.MANA) {
-      await delay(750);
-      this.apps.push("spells");
     }
   }
 

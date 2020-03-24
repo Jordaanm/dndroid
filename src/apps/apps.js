@@ -4,10 +4,10 @@ export const appMasterList = {
     name: 'Character Sheet',
     icon: 'stats',
   },
-  'spells': {
-    id: 'spells',
-    name: 'Spells',
-    icon: 'magic'
+  'combat': {
+    id: 'combat',
+    name: 'Combat',
+    icon: 'combat'
   },
   'googax': {
     id: 'googax',

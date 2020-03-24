@@ -1,0 +1,15 @@
+.weapon.row {
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25em);
+  margin-bottom: 0.25em;
+}
+
+.spell.column {
+  padding-bottom: 0.25em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25em);
+  margin-bottom: 0.25em;
+}
+
+.weapons-header, .spells-header {
+  margin-bottom: 0.5em;
+}
