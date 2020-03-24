@@ -90,7 +90,8 @@ export class OSStore {
   }
 
   connectSocket() {
-    const socketAddress = window.location.host.toString().replace(':3000', '') + ":8000";
+    // const socketAddress = window.location.host.toString().replace(':3000', '') + ":8000";
+    const socketAddress = 'ws://afternoon-eyrie-75824.herokuapp.com/';
     this.socket = openSocket(socketAddress);
     this.socket.on('speak', msg => this.voice.speak(msg));
     this.socket.on('unlockApp', appName => this.unlockApp(appName));
