@@ -90,7 +90,8 @@ export class OSStore {
   }
 
   connectSocket() {
-    this.socket = openSocket('http://localhost:8000');
+    const socketAddress = window.location.host.toString().replace(':3000', '') + ":8000";
+    this.socket = openSocket(socketAddress);
     this.socket.on('speak', msg => this.voice.speak(msg));
     this.socket.on('unlockApp', appName => this.unlockApp(appName));
     this.socket.on('dmReceivePlayers', p => {
