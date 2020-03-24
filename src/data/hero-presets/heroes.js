@@ -9,6 +9,26 @@ export const PrimaryResources = {
     KI: 'Ki'
 }
 
+export const dm = {
+    name: 'Dungeon Master',
+    password: '14041990',
+    features: [],
+    spells: [],
+    attacks: [],
+    ac: 99,
+    maxHP: 99,
+    maxResource: 99,
+    primaryResource: null,
+    attributes: {
+        str: 99,
+        dex: 99,
+        con: 99,
+        int: 99,
+        wis: 99,
+        cha: 99
+    }
+};
+
 export const fighter = {
     name: 'Fighter',
     password: 'champion',
@@ -393,5 +413,5 @@ export const sorcerer = {
 };
 
 export const allHeroes = [
-    ranger, fighter, paladin, monk, bard, sorcerer
+    ranger, fighter, paladin, monk, bard, sorcerer, dm
 ]

@@ -137,7 +137,7 @@ export class OSStore {
     this.hero = data.hero;
     this.user = data.user;
     this.isLocked = false;
-    this.socket.emit('selectedHero', this.name, this.user);
+    this.socket.emit('selectedHero', this.hero.name, this.user);
     
     //Unlock Apps
     this.apps = data.unlockedApps;
