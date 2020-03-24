@@ -11,12 +11,13 @@ import { Googax } from "./googax";
 import { Combat } from "./combat";
 
 import { OSNavBar } from "../components/os-nav-bar";
-// import { OSAppBar } from "../components/os-app-bar";
 import { OSNotificationBar } from "../components/os-notification-bar";
+import { OSAppList} from '../components/app-list';
 import { useStores } from "../utils/contexts";
 
-const getApp = currentApp => {
-  switch((currentApp || '').toLowerCase()) {
+const getApp = appName => {
+  console.log("GetAPP", appName);
+  switch((appName || '').toLowerCase()) {
     case "sheet": return <CharSheet />;
     case "dm": return <DM />;
     case "googax": return <Googax />;
@@ -25,11 +26,13 @@ const getApp = currentApp => {
   }
 }
 
-export const OS = observer(props => {
+export const OS = observer(() => {
   const { os } = useStores();
+  const { showAppList } = os;
+  console.log("ShowAppList ? ", showAppList);
 
   const app = getApp(os.currentApp);
-  const heroName = ((os.hero && os.hero.name) || '').toLowerCase();
+  const heroName = (os.hero ? os.hero.name : '').toLowerCase();
   return (
     <div className={`container ${heroName} ${os.isLocked ? 'blur' : ''}`}>
       <OSNotificationBar />
@@ -37,8 +40,8 @@ export const OS = observer(props => {
       {!os.isLocked && <>
         <div className="body">
           {app}
-          {/* <OSAppBar /> */}
           <OSNavBar />
+          {showAppList && <OSAppList />}
         </div>
       </>}
     </div>

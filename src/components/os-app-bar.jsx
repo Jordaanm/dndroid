@@ -4,7 +4,7 @@ import { useStores } from "../utils/contexts";
 
 export const OSAppBar = props => {
   const { os } = useStores();
-  const openApp = (name) => () => { os.currentApp = name; };
+  const openApp = (name) => () => { os.launchApp(name); };
 
   return (
     <div className="apps">

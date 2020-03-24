@@ -1,15 +1,17 @@
-import { observable, decorate, action} from 'mobx'
-import { allHeroes, PrimaryResources } from '../data/hero-presets/heroes';
+import { observable, decorate, action, computed } from 'mobx'
+import { allHeroes } from '../data/hero-presets/heroes';
 import { delay } from '../utils/promises';
 import { Voice } from '../utils/voice';
 import { populateSheet } from "../utils/char-utils";
 import openSocket from 'socket.io-client';
+import { appMasterList } from '../apps/apps';
 
 const DEFAULT_APPS = ['sheet', 'combat'];
 const LOCAL_STORAGE_CHAR_KEY = 'characterData';
 
 export class OSStore {
-  currentApp = null;
+  appHistory = ['home'];
+  showAppList = false;
   isLocked = true;
   isDM = false;
   hero = null;
@@ -51,6 +53,35 @@ export class OSStore {
     }
   }
 
+  toggleAppList() {
+    this.showAppList = !this.showAppList;
+  }
+
+  get currentApp() {
+    return this.appHistory[this.appHistory.length -1] || 'home';
+  }
+
+  get appList() {
+    return this.appHistory
+      .filter((val, index, self) => self.indexOf(val) === index) //Unique
+      .filter(val => val !== 'home')
+      .reverse()
+      .map(appName => appMasterList[appName]);
+  }
+
+  launchApp(appName) {
+    this.showAppList = false;
+    if(this.appHistory[this.appHistory.length -1] !== appName) {
+      this.appHistory.push(appName);
+    }
+  }
+
+  goBack() {
+    if(this.appHistory.length > 1) {
+      this.appHistory.splice(-1, 1);
+    }
+  }
+
   initialise() {
     const val = this.connectSocket();
     this.load();
@@ -87,11 +118,7 @@ export class OSStore {
     const data = {
       hero: this.hero,
       user: this.user,
-      unlockedApps: this.apps,
-      health: 0, //TODO
-      mana: 0, //TODO
-      inventory: [], //TODO
-      skillUses: [] //TODO
+      unlockedApps: this.apps
     };
 
     localStorage.setItem(LOCAL_STORAGE_CHAR_KEY, JSON.stringify(data));
@@ -111,16 +138,14 @@ export class OSStore {
     
     //Unlock Apps
     this.apps = data.unlockedApps;
-
-    // this.hero.hp = data.health;
-    // this.hero.mana = data.mana;
-    // this.inventory = data.inventory;
-    // this.hero.skillUses = data.skillUses
   }
 } 
 
 decorate(OSStore, {
-  currentApp: observable,
+  currentApp: computed,
+  appList: computed,
+  showAppList: observable,
+  appHistory: observable,
   isLocked: observable,
   isDM: observable,
   searchTerm: observable,

@@ -30,7 +30,7 @@ export const Combat = observer(() => {
         <span className="f1 tx-s">Range</span>
         <span className="f1 tx-s">Damage</span>
       </div>
-      {(attacks || []).map(attack => <Attack attack={attack} hero={hero} />)}
+      {(attacks || []).map(attack => <Attack attack={attack} hero={hero} key={attack.name} />)}
 
       <div className="row flex-sb flex-ac">
         <h2>Spells</h2>

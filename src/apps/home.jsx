@@ -15,20 +15,20 @@ const getDateString = () => {
   return moment().format("dddd MMM Do");
 };
 
-export const Home = observer(props => {
+export const Home = observer(() => {
   const { os } = useStores();
   const [term, setTerm] = useState('');
   const dateString = getDateString();
   const unlockedApps = os.apps.map(x => appMasterList[x]);
 
   const openApp = app => () => {
-    os.currentApp = app.id;
+    os.launchApp(app.id);
   };
 
   const search = e => {
     e.preventDefault();
     os.searchTerm = term;
-    os.currentApp = "googax";
+    os.launchApp("googax");
   }
 
   return (

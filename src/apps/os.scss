@@ -73,4 +73,55 @@
       background-color: rgba(255, 255, 255, 0.8);
     }
   }
+
+  .widget {
+    position: absolute;
+    z-index: 20;
+    right: 0;
+    bottom: 3em;
+    background-color: rgba(0,0,0,0.8);
+    padding: 0.25em;
+
+    .app-shortcut {
+      padding: 0.25em;
+      width: 100%;
+      align-items: center;
+      justify-content: space-between;
+      color: white;
+      border-radius: 10px;
+      text-align: center;
+      margin: 0.5em;
+      animation: appZoomIn 0.5s ease-in-out;
+    
+      .icon {
+        display: block;
+        height: 2em;
+        width: 2em;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+    
+        &.icon--stats {
+          background-image: url('/icon-stats.png');
+        }
+        &.icon--d20 {
+          background-image: url('/icon-d20.png');
+        }
+        &.icon--combat {
+          background-image: url('/icon-d20.png');
+        }
+        &.icon--google {
+          background-image: url('/icon-google.png');
+        }
+      }
+    
+      .label {
+        font-size: 18px;
+        font-weight: 500;
+        flex: 1;
+        text-align: left;
+        padding-left: 1em;
+      }
+    }    
+  }
 }
