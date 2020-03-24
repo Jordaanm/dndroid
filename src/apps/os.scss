@@ -24,6 +24,7 @@
     overflow: hidden;
     background-image: url('/dnd-tile.png');
     background-repeat: repeat;
+    transition: filter 0.5s;
   }
 
 
@@ -52,7 +53,6 @@
   }
 
   &.blur:before {
-    transition: filter 0.25s;
     filter: blur(10px);
   }
 }
