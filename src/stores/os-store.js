@@ -66,7 +66,8 @@ export class OSStore {
       .filter((val, index, self) => self.indexOf(val) === index) //Unique
       .filter(val => val !== 'home')
       .reverse()
-      .map(appName => appMasterList[appName]);
+      .map(appName => appMasterList[appName])
+      .filter(Boolean);
   }
 
   launchApp(appName) {

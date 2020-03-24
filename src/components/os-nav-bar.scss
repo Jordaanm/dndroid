@@ -1,10 +1,13 @@
 .nav-bar {
     height: 35px;
     width: 100%;
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.5);
     display: flex;
     justify-content: space-between;
-    padding: 0 2em;
+    padding: 0.5em 2em;
+    position: absolute;
+    bottom: 0;
+    z-index: 18;
   }
   
   .nav-bar .back {
@@ -18,7 +21,7 @@
   .nav-bar .back span {
     content: "";
     display: inline-block;
-    background-color: white;
+    background-color: #222;
     width: 15px;
     height: 2.3px;
     position: absolute;
@@ -47,7 +50,7 @@
   }
   
   .nav-bar .home {
-    border: 2px solid white;
+    border: 2px solid #222;
     height: 20px;
     width: 20px;
     border-radius: 50%;
@@ -57,7 +60,7 @@
   .nav-bar .recent {
     height: 20px;
     width: 20px;
-    border: 2px solid white;
+    border: 2px solid #222;
     border-radius: 2px;
     cursor: pointer;
   }
