@@ -119,11 +119,13 @@ export const paladin = {
         },
         {
             name: "Divine Smite",
-            description: `When you hit a creature with a melee weapon attack, you can spend mana to deal additional radiant damage on the attack. The bonus is based on mana spent:\n`+
-            `* 2d8 for 2 mana`+
-            `* 3d8 for 3 mana`+
-            `* 4d8 for 5 mana`+
-            `If the target is a fiend or undead, deal a further bonus of 1d8 damage`
+            description: [
+                'When you hit a creature with a melee weapon attack, you can spend mana to deal additional radiant damage on the attack. The bonus is based on mana spent:',
+                `* 2d8 for 2 mana`,
+                `* 3d8 for 3 mana`,
+                `* 4d8 for 5 mana`,
+                `\n\nIf the target is a fiend or undead, deal a further bonus of 1d8 damage`
+            ].join('\n')
         },
         {
             name: "Divine Health",
@@ -436,7 +438,7 @@ export const sorcerer = {
         'burning hands',
         'mage armor',
         'magic missile',
-        'agnazzars scorcher',
+        'aganazzars scorcher',
         'blur',
         'fireball'
     ], 

@@ -43,12 +43,14 @@ export const Combat = observer(() => {
         <span className="f1 tx-s">Duration</span>
         <span className="f1 tx-s"></span>
       </div>
-      {(spells || []).map(spell => <Spell
-        spell={spell}
-        availMana={currentResource}
-        key={spell.name}
-        castSpellCB = {castSpellCB}
-      />)}
+      <div className="column f1">
+        {(spells || []).map(spell => <Spell
+          spell={spell}
+          availMana={currentResource}
+          key={spell && spell.name}
+          castSpellCB = {castSpellCB}
+        />)}
+      </div>
     </div>
   );
 });

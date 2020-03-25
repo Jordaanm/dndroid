@@ -28,7 +28,11 @@ export const populateSheet = data => {
         };
     });
 
-    const characterSpells = (data.spells || []).map(name => spells.find(sp => sp.name === name));
+    const characterSpells = (data.spells || []).map(name => {
+        const spell = spells.find(sp => sp && sp.name === name)
+        if(!spell) { console.log("Spell not found", spell); }
+        return spell || {};
+    });
 
     return {
         ...data,

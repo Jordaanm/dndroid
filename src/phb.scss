@@ -1,7 +1,7 @@
 .phb {
-    column-count: 2;
-    column-fill: auto;
-    column-gap: 1cm;
+    // column-count: 2;
+    // column-fill: auto;
+    // column-gap: 1cm;
     // column-width: 8cm;
     // -webkit-column-count: 2;
     // -moz-column-count: 2;
@@ -16,8 +16,7 @@
     overflow: hidden;
     // height: 279.4mm;
     // width: 215.9mm;
-    padding: 1cm 1.7cm;
-    padding-bottom: 1.5cm;
+    padding: 1em 2em;
     background-color: #EEE5CE;
     background-image: url('/phb-bg.jpg');
     font-family: BookSanity;
@@ -25,12 +24,6 @@
     text-rendering: optimizeLegibility;
     page-break-before: always;
     page-break-after: always
-}
-
-.phb.single-col {
-  column-count: 1;
-  -webkit-column-count: 1;
-  -moz-column-count: 1;
 }
 
 .phb p {
