@@ -8,6 +8,7 @@ import "./googax.scss";
 import { delay } from "../utils/promises";
 
 const searchFor = term => {
+  if(!term || term.length < 3) { return []; }
   const lTerm = (term || "").toLowerCase();
   const results = googaxData.filter(x =>
     x.content.toLowerCase().includes(lTerm) ||
