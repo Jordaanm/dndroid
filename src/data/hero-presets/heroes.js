@@ -144,14 +144,19 @@ export const paladin = {
         'protection from evil and good',
         'sanctuary',
         'lesser restoration',
-        'zone of truth'
+        'zone of truth',
+        'bless',
+        'purify food and drink',
+        'shield of faith'
     ], 
     attacks: [{
         name: 'Warhammer',
+        hit: '+5',
         damage: '1d10+{STR}',
         range: ''
     }, {
         name: 'Throwing Hammer',
+        hit: '+5',
         damage: '1d4+{STR}',
         range: '20ft/60ft'
     }]
@@ -167,7 +172,7 @@ export const ranger = {
     primaryResource: PrimaryResources.MANA,
     attributes: {
         str: 12,
-        dex: 18,
+        dex: 16,
         con: 14,
         int: 10,
         wis: 16,
@@ -205,14 +210,24 @@ export const ranger = {
     }, {
         name: 'Extra Attack',
         description: 'You can attack twice, instead of once, whenever you take the Attack action on your turn'
+    }, {
+        name: 'Sharpshooter',
+        description: [
+            'You have mastered ranged weapons and can make shots that others find impossible. You gain the following benefits:',
+            '* Attacking at long range doesn\'t impose disadvantage on your ranged weapon attack rolls.',
+            '* Your ranged weapon attacks ignore half cover and three-quarters cover.',
+            '* Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack\'s damage.'
+        ].join('\n')
     }],
-    spells: ['hunters mark'],
+    spells: ['goodberry', 'hunters mark', 'speak with animals', 'pass without trace'],
     attacks: [{
         name: 'Longbow',
-        damage: '1d8+{DEX}+2',
+        hit: '+6',
+        damage: '1d8+{DEX}',
         range: '150ft/600ft'
     }, {
         name: 'Dagger',
+        hit: '+6',
         damage: '1d4+{DEX}',
         range: '20ft/60ft'
     }]
@@ -341,7 +356,17 @@ export const bard = {
         ].join('\n')
     }],
     spells: [
-
+        'mage hand',
+        'friends',
+        'vicious mockery',
+        'hideous laughter',
+        'comprehend languages',
+        'charm person',
+        'magic missile',
+        'cloud of daggers',
+        'heat metal',
+        'speak with dead',
+        'pyrotechnics'
     ], 
     attacks: [{
         name: 'Rapier',
@@ -403,7 +428,17 @@ export const sorcerer = {
         ].join('\n')
     }],
     spells: [
-        
+        'blade ward',
+        'fire bolt',
+        'light',
+        'prestidigitation',
+        'shocking grasp',
+        'burning hands',
+        'mage armor',
+        'magic missile',
+        'agnazzars scorcher',
+        'blur',
+        'fireball'
     ], 
     attacks: [{
         name: 'Quarterstaff',

@@ -32,7 +32,7 @@ export class OSStore {
     setInterval(() => {
       if (!this.isLocked) {
         this.save();
-        console.log("Saving...");
+        console.log("Saving Character Data");
       }
     }, 15000);
   }

@@ -1,3 +1,37 @@
+// 'goodberry'
+// 'hunters mark'
+// 'speak with animals'
+// 'pass without trace'
+// 'protection from evil and good',
+// 'sanctuary',
+// 'lesser restoration',
+// 'zone of truth',
+// 'bless',
+// 'purify food and drink',
+// 'shield of faith'
+// 'mage hand',
+// 'friends',
+// 'vicious mockery',
+// 'hideous laughter',
+// 'comprehend languages',
+// 'charm person',
+// 'magic missile',
+// 'cloud of daggers',
+// 'heat metal',
+// 'speak with dead',
+// 'pyrotechnics'
+// 'blade ward',
+// 'fire bolt',
+// 'light',
+// 'prestidigitation',
+// 'shocking grasp',
+// 'burning hands',
+// 'mage armor',
+// 'magic missile',
+// 'agnazzars scorcher',
+// 'blur',
+// 'fireball'
+
 export const spells = [{
   name: 'protection from evil and good',
   cost: 1,
