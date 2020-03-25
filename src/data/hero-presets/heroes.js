@@ -340,7 +340,11 @@ export const bard = {
     },
     skillProfs: ['persuasion', 'deception', 'performance'],
     skillExpertise: ['persuasion', 'deception'],
-    features: [{
+    features: [ {
+        name: 'Bardic Knowledge',
+        description: 'You possess a wealth of general knowledge sometimes surprising even you.\n\n' +
+        'You find that **asking a question out loud** often reveals the answer'
+    }, {
         name: 'Spellcasting',
         description: 'You have learned to untangle and reshape the fabric of reality in harmony with your wishes and music'
     }, {
@@ -364,7 +368,7 @@ export const bard = {
     }, {
         name: 'Expertise - Persuasion and Deception',
         description: 'You are an expert at Persausion and Intimidation, and gain bonuses to all related skill checks'
-    }, {
+    },{
         name: 'Combat Inspiration',
         description: [
             'A creature that has a Bardic Inspiration die from you can roll that die and add the number rolled to a weapon damage roll it has just made',
