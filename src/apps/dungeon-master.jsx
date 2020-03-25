@@ -31,7 +31,7 @@ export const DM = observer(props => {
           <span>Target:</span>
           <select value={selectedHero} onChange={e => setSelectedHero(e.target.value)}>
             <option value="">NONE</option>
-            {os.dmScreen.players.map(x => <option key={x.id} value={x.id}>{x.name}</option>)}
+            {os.dmScreen.players.map(x => <option key={x.id} value={x.id}>{x.user}, {x.name}</option>)}
           </select>
           <button onClick={() => refresh()}>REFRESH</button>
         </div>
