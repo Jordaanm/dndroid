@@ -143,7 +143,7 @@ export const spells = [{
     'If the target can hear you (thought it need not understand you), it must succeed on a Wisdom saving throw or take 1d4 psychic damage and have disadvantage on the next attack roll it makes before the end of its next turn.'
   ].join('\n')
 },{
-  name: 'Hideous Laughter',
+  name: 'hideous laughter',
   cost: 2,
   castTime: '1 action',
   range: '30 ft',
@@ -162,7 +162,6 @@ export const spells = [{
   description: [
     'For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any spoken language that you hear.',
     'You also understand any written language that you see, but you must be touching the surface of which the words are written. It takes about 1 minute to read one page of text.',
-    '',
     'This spell doesn’t decode secret messages in a text or glyph, such as an arcane sigil, that isn’t part of a written language.'
   ].join('\n')
 },{
@@ -228,7 +227,7 @@ export const spells = [{
   duration: '10 min',
   description: [
     'You grant the semblance of life and intelligence to a corpse of your choice within range, allowing it to answer the questions you pose. The corpse must still have a mouth and can’t be undead. The spell fails if the corpse was the target of this spell within the last 10 days.',
-    '---',
+    '',
     'Until the spell ends, you can ask the corpse up to five questions. The corpse knows only what it knew in life, including the languages it knew.',
     'Answers are usually brief, cryptic, or repetitive, and the corpse is under no compulsion to offer a truthful answer if you are hostile to it or it recognizes you as an enemy. This spell doesn’t return the creature’s soul to its body, only its animating spirit. Thus, the corpse can’t learn new information, doesn’t comprehend anything that has happened since it died, and can’t speculate about future events.'
   ].join('\n')

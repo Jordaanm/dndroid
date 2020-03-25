@@ -16,6 +16,13 @@ export const Combat = observer(() => {
     }
   };
 
+  const sortedSpells = (spells || []).sort((a, b) => {
+    if(a.cost === b.cost) {
+      return a.name > b.name ? 1 : -1;
+    } else {
+      return a.cost > b.cost ? 1 : -1;
+    }
+  });
 
   return (
     <div className="app phb app--spells single-col">
@@ -28,6 +35,7 @@ export const Combat = observer(() => {
       <div className="row weapons-header">
         <span className="f3 tx-s">Weapon</span>
         <span className="f1 tx-s">Range</span>
+        <span className="f1 tx-s">To Hit</span>
         <span className="f1 tx-s">Damage</span>
       </div>
       {(attacks || []).map(attack => <Attack attack={attack} hero={hero} key={attack.name} />)}
@@ -40,11 +48,12 @@ export const Combat = observer(() => {
         <span className="f3 tx-s">Spell</span>
         <span className="f1 tx-s">Cast Time</span>
         <span className="f1 tx-s">Range</span>
-        <span className="f1 tx-s">Duration</span>
+        <span className="f2 tx-s">Duration</span>
+        <span className="f1 tx-s">Cost</span>
         <span className="f1 tx-s"></span>
       </div>
       <div className="column f1">
-        {(spells || []).map(spell => <Spell
+        {sortedSpells.map(spell => <Spell
           spell={spell}
           availMana={currentResource}
           key={spell && spell.name}
@@ -64,7 +73,8 @@ const Spell = ({spell, availMana, castSpellCB}) => {
         <span className="tx-m tx-heavy tx-cap f3">{spell.name}</span>
         <span className="tx-m f1">{spell.castTime}</span>
         <span className="tx-m f1">{spell.range}</span>
-        <span className="tx-m f1">{spell.duration}</span>
+        <span className="tx-m f2">{spell.duration}</span>
+        <span className="tx-m f1">{spell.cost} mana</span>
         <div className="f1">
           <button className="btn" disabled={!canAfford} onClick={castSpellCB(spell)}>Cast</button>
         </div>
@@ -83,6 +93,7 @@ const Attack = ({attack, hero}) => {
     <div className="weapon row flex-ac">
       <span className="tx-m tx-heavy tx-cap f3">{attack.name}</span>
       <span className="tx-m f1">{attack.range}</span>
+      <span className="tx-m f1">{attack.hit}</span>
       <span className="tx-m f1">{damageString}</span>
     </div>
   );

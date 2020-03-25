@@ -74,10 +74,12 @@ export const fighter = {
     ], 
     attacks: [{
         name: 'Longsword',
+        hit: '+7',
         damage: '1d8+{STR}',
         range: ''
     }, {
         name: 'Javelin',
+        hit: '+7',
         damage: '1d6+{STR}',
         range: '30ft/120ft'
     }]
@@ -88,7 +90,7 @@ export const paladin = {
     password: 'believe',
     classes: ['Paladin'],
     ac: 18,
-    maxHP: 48,
+    maxHP: 65,
     maxResource: 14,
     primaryResource: PrimaryResources.MANA,
     attributes: {
@@ -161,6 +163,11 @@ export const paladin = {
         hit: '+5',
         damage: '1d4+{STR}',
         range: '20ft/60ft'
+    }, {
+        name: 'Spell Attack',
+        hit: '+7',
+        damage: '',
+        range: ''
     }]
 };
 
@@ -232,6 +239,11 @@ export const ranger = {
         hit: '+6',
         damage: '1d4+{DEX}',
         range: '20ft/60ft'
+    }, {
+        name: 'Spell Attack',
+        hit: '+5',
+        damage: '',
+        range: ''
     }]
 };
 
@@ -299,10 +311,12 @@ export const monk = {
     spells: [], 
     attacks: [{
         name: 'Unarmed Strike',
+        hit: '+7',
         damage: '1d6+{DEX}',
         range: ''
     }, {
         name: 'Shuriken',
+        hit: '+7',
         damage: '1d4+{DEX}',
         range: '30ft/120ft'
     }]
@@ -372,12 +386,19 @@ export const bard = {
     ], 
     attacks: [{
         name: 'Rapier',
+        hit: '+6',
         damage: '1d8+{DEX}',
         range: ''
     }, {
         name: 'Whip',
+        hit: '+6',
         damage: '1d+{DEX}',
         range: '15ft'
+    }, {
+        name: 'Spell Attack',
+        hit: '+7',
+        damage: '',
+        range: ''
     }]
 };
 
@@ -444,7 +465,13 @@ export const sorcerer = {
     ], 
     attacks: [{
         name: 'Quarterstaff',
+        hit: '+4',
         damage: '1d6+{STR}',
+        range: ''
+    }, {
+        name: 'Spell Attack',
+        hit: '+7',
+        damage: '',
         range: ''
     }]
 };
